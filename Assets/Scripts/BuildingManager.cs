@@ -5,11 +5,13 @@ public class BuildingManager : MonoBehaviour {
     private BuildingTypeListSO _buildingTypeList;
     private BuildingTypeSO _buildingType;
 
-    private void Start() {
-        _mainCamera = Camera.main;
-
+    private void Awake() {
         _buildingTypeList = Resources.Load<BuildingTypeListSO>(nameof(BuildingTypeListSO));
         _buildingType = _buildingTypeList.list[0];
+    }
+
+    private void Start() {
+        _mainCamera = Camera.main;
     }
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
